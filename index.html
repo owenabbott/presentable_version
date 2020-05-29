@@ -1,0 +1,84 @@
+<head>
+</head>
+<body>
+    <div id="New_User">
+    <form id="create_user_form">
+        <label for="name">Enter your name:</label><br>
+        <input type="text" id="name" name="name" class="user_name"><br>
+        <label for="money">How much money would you like to play with?</label><br>
+        <input type="number" id="money" name="money" value="" class="user_bank"><br>
+        <label for="players">How many other players would you like to play with? (choose between one and two.)</label><br>
+        <input type="number" id="players" name="players" value="" class="other_players"><br>
+        <!-- information gets sent back in a fetch request to create a new user. -->
+        <input type="submit" id="create_user">
+      </form>
+    </div>
+
+    <div id="Placing_Bet" style="display: none;">
+        <form class="place_bet_form">
+        <label for="bet_amount">Enter Bet Amount</label><br>
+        <input type="number" id="bet_amount" value="" name="bet_amount" class="users_bet"><br>
+        <!---information gets sent back in a fetch request to patch the player's bet for the round. ---->
+        <button id="place_bet" type="button">Place Bet</button>
+        </form>
+    </div>
+
+
+    <div id="bot_container" style="display: none;"></div>
+
+    <div id="dealer_hand"></div>
+    <div id="dealer_total"></div>
+    
+
+    
+    <div id="player_container">
+    <div id="player_id" style="display: none;"></div>
+    <div id="player_hand"></div>
+    <div id="player_total"></div>
+    <div id="player_bet"></div>
+    <div id="player_bet_id" style="display: none;"></div>
+    <div id="player_bank_account"></div>
+    
+    <div id="Hit_Me">
+    
+    </div>
+    
+    <div id="busted" style="display: none;"><h1>You Busted!</h1></div>
+    <div id="Won" style="display: none;"><h1>You Won the Round!<br>Ask Kyle to retrieve your winnings. He's good for it.</h1></div>
+    <div id="Blackjack!" style="display: none;"><h1>BlackJack!</h1></div>
+    <div id="tie" style="display:none;"><h1>It's a tie!</h1></h1></div>
+    
+    <div id="dealer_busted" style="display: none;"><h1>Dealer Busts!</h1></div>
+    <div id="dealer_blackjack!" style="display: none;"><h1>Dealer Has BlackJack!</h1></div>
+    <div id="dealer_won" style="display: none;"><h1>Dealer Wins The Round!</h1></div>
+    
+    <button id="hit_me" type="button" style="display: none;">Hit Me</button>
+    <button id="stay" type="button" style="display: none;">Stay</button>
+    <button id="double_down" type="button" style="display: none;">Double Down</button>
+    
+    <button id="place_bet" type="button" style="display: none;">Place Bet</button>
+    <button id="split" type="button" style="display: none;">Split</button>
+    
+    <div id="splitting?" style="display: none;"><H1><strong>Owen's blackjack table does not allow that kind of tom foolery!</strong></H1></div>
+
+
+    <button id="New_Round" type="button" style="display: none;">New Round?</button>
+    <!-- re-renders place bet button, creates new round, user prompted to place another bet -->
+    
+</body>
+
+<script type="text/javascript" src="src/index.js" defer></script>
+<!-- obviusly in future build splitting will be available and above div will be gone.--->
+
+<!-- in future build, replace all the above with either one divs with dynamic innerTEXT, or one dynamic div for dealer conditions and one dynamic div for user.  -->
+
+
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- BOTS -->
+
+<!-- User has dropdown ability to select between one and two bot players
+bot players get their own hands, so deck logic at the top of this page can be applied to them as well
+in later versions I can use conditionals based on blackjack charts to determine what action they take but in the initial version, they just hit till 17 and then stay. -->
+

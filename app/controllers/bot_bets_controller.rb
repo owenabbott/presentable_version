@@ -1,0 +1,2 @@
+class BotBetsController < ApplicationController
+end
